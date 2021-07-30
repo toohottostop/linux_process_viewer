@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+if [ ! -d "logs/" ]
+then
+    echo "Error: Directory /logs does not exists."
+    echo "Create directory /logs"
+    mkdir logs
+fi
+
 if [[ "$1" = "start" ]]; then
   echo "Start client and server"
   python ps_viewer/manage.py runserver 1> logs/django_log.log 2> logs/django_errors.log &
